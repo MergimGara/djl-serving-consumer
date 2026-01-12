@@ -27,9 +27,9 @@ public class ConsumerController {
     public String predict(@RequestParam("image") MultipartFile image) throws Exception {
         InputStream is = new ByteArrayInputStream(image.getBytes());
 
-        var uri = "http://localhost:8080/predictions/resnet18_v1";
+        var uri = "http://localhost:8080/predictions/traced_resnet18";
         if (this.isDockerized()) {
-            uri = "http://model-service:8080/predictions/resnet18_v1";
+            uri = "http://model-service:8080/predictions/traced_resnet18";
         }
 
         var webClient = WebClient.create();
